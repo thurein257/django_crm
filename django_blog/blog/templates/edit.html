@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+  {% block title %}
+    Update Form
+  {% endblock %}
+    {% block body %}
+    <br/>
+    <div class="card col-md-4 offset-md-4">
+          <div class="card-body">
+            <form method="POST" action="" enctype="mutlipart/form-data">
+              {% csrf_token %}
+              <div class="mb-3">
+                <input class="form-control" type="text" name="name" value="{{data_update.name}}" placeholder="Name" required>
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="email" value="{{data_update.email}}"  placeholder="Email" required>
+              </div>
+              <div class="mb-3">
+                  <input class="form-control" name="phone" type="text" value="{{data_update.phone}}" placeholder="Phone" required>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" name="address" value="{{data_update.address}}" placeholder="Address" required>
+                </div>
+                <div class="mb-3">
+                  <input class="form-control" type="text" name="city" value="{{data_update.city}}" placeholder="City" required>
+                </div>
+                <br/>
+                <input type="submit" class="btn btn-info" value='Update'/>
+          </div>
+    </div>
+{% endblock %}

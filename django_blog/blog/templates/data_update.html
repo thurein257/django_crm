@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+    {% block title %}
+        Detail
+    {% endblock %}
+    {% block body %}
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}<br/><br/>
+        <div class="card col-md-4 offset-md-4">
+            <h4 class="card-header">User Info :</h4>
+            <div class="card-body">
+                <div><strong>Id :</strong> {{ data_update.id }}</div>
+                <div><strong>Name :</strong> {{ data_update.name }}</div>
+                <div><strong>Email :</strong> {{ data_update.email }}</div>
+                <div><strong>Phone :</strong> {{ data_update.phone }}</div>
+                <div><strong>Address :</strong> {{ data_update.address }}</div>
+                <div><strong>City :</strong> {{ data_update.city }}</div>
+                <div><strong>Zipcode :</strong> {{ data_update.zipcode }}</div>
+                <div><strong>Date :</strong> {{ data_update.create_at }}</div><hr/>
+                    <a href="/" class="btn btn-secondary">Back</a>
+                <div class="float-end mx-6">
+                    {% if user.is_authenticated %}
+                    <a href="/edit/{{data_update.id}}" type="submit" class="btn btn-info">Edit</a>
+                    <a href="/delete/{{data_update.id}}" type="submit" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+{% endblock %}

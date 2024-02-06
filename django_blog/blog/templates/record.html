@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+    {% block title %}
+        Home
+    {% endblock %}
+    {% block body %}<br/>
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+                <table class="table table-bordered table-striped table-hover ">
+                    <thead class="table-info">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">ZipCode</th>
+                        <th scope="col">Created At</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% if records %}
+                            {% for record in records %}
+                            <tr>
+                                <td><a href="/data_update/{{record.id}}">{{ record.id }}</a></td>
+                                <td>{{ record.name }}</td>
+                                <td>{{ record.email }}</td>
+                                <td>{{ record.phone }}</td>
+                                <td>{{ record.address }}</td>
+                                <td>{{ record.city }}</td>
+                                <td>{{ record.zipcode }}</td>
+                                <td>{{ record.create_at }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+
+{% endblock %}
